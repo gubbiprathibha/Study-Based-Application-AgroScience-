@@ -19,6 +19,7 @@ namespace StudyBasedApplication.Business
         {
             try
             {
+
                 return sponsorrepo.GetAllSponsors();
             }
             catch (Exception e)
