@@ -1,0 +1,120 @@
+﻿@model StudyBasedApplication.BO.Models.GrantDenyStudyModel
+@{
+    ViewBag.Title = "GetStudy";
+}
+<script>
+    $(function () {
+
+        var form_original_data = $("#Permission").serialize();
+
+        $("#deny").click(function (e) {
+
+            if ($("#Permission").serialize() == form_original_data) 
+                // no change
+                {
+                    alert("No changes made");
+                    e.preventDefault();
+                }
+                else {
+                    alert("changes done successfully");
+                }
+        });
+        $("#grant").click(function (e) {
+
+            if ($("#Permission").serialize() == form_original_data)
+            // no change
+            {
+                alert("No changes made");
+                e.preventDefault();
+            }
+            else {
+                alert("changes done successfully");
+            }
+        });
+
+
+    });
+</script>
+
+
+
+<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+
+
+
+@if (Model.studymodelGranted.Count != 0)
+{
+<font size="5">Granted Studies</font>
+<br />
+<br />
+
+<table width="60%" >
+<tr ><th>StudyId</th><th>StudyName</th><th>StudyCode</th><th>SponsorName</th><th>Deny</th></tr>
+@for (int i = 0; i < Model.studymodelGranted.Count;i++ )
+{
+    
+        <tr>
+        @Html.HiddenFor(m => m.studymodelGranted[i].StudyID)
+        @Html.HiddenFor(m => m.studymodelGranted[i].StudyName)
+        @Html.HiddenFor(m => m.studymodelGranted[i].StudyCode)
+        @Html.HiddenFor(m => m.studymodelGranted[i].SponsorName)
+        <td>@Html.DisplayFor(m => m.studymodelGranted[i].StudyID)</td>
+        <td>@Html.DisplayFor(m => m.studymodelGranted[i].StudyName)</td>
+        <td>@Html.DisplayFor(m => m.studymodelGranted[i].StudyCode)</td>
+        <td>@Html.DisplayFor(m => m.studymodelGranted[i].SponsorName)</td>
+        <td>@Html.CheckBoxFor(m => m.studymodelGranted[i].Selected)</td>
+        </tr>
+
+    
+}
+</table>
+
+<br />
+<br />
+<input type=submit name=btn value=Deny id=deny class=css_button />
+<br />
+<br />
+<br />
+    }
+    else
+{
+  <h4>No studies are granted </h4>
+}
+    
+    @if (Model.studymodelDenied.Count != 0)
+{
+<font size="5">Denied Studies</font>
+<br />
+<br />
+<table width="50%" class=beta>
+<tr ><th>StudyId</th><th>StudyName</th><th>StudyCode</th><th>SponsorName</th><th>Grant</th></tr>
+@for (int i = 0; i < Model.studymodelDenied.Count; i++)
+{
+     <tr >
+        @Html.HiddenFor(m => m.studymodelDenied[i].StudyID)
+        @Html.HiddenFor(m => m.studymodelDenied[i].StudyName)
+        @Html.HiddenFor(m => m.studymodelDenied[i].StudyCode)
+        @Html.HiddenFor(m => m.studymodelDenied[i].SponsorName)
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(m => m.studymodelDenied[i].StudyID)</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(m => m.studymodelDenied[i].StudyName)</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(m => m.studymodelDenied[i].StudyCode)</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(m => m.studymodelDenied[i].SponsorName)</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.studymodelDenied[i].Selected)</td>
+        </tr>
+    
+}
+</table>
+<br />
+<br />
+<input type=submit name=btn value=Grant id=grant class=css_button />
+}
+    else
+    {
+  <h4>No studies are denied </h4>
+}
+
+
+
+
+
+

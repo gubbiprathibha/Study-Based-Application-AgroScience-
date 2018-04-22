@@ -1,0 +1,65 @@
+﻿
+
+<link href="../../Content/Inputscss/buttons.css" rel="stylesheet" type="text/css" />
+
+<h4>Select a sponsor to add to the user</h4>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#add").click(function (e) {
+            var sponsorvalue = $("#sponsorlist").val();
+            if (sponsorvalue == null) {
+                alert("Please select a sponsor");
+                e.preventDefault();
+
+            }
+        });
+    });
+
+
+    function sponsor() {
+        var sponsorvalue = $("#sponsorlist").val();
+        
+            $.ajax({
+
+                type: "POST",
+                url: '@Url.Action("Index","SponsorAccessManagement")',
+                data: JSON.stringify({ Sponsors: sponsorvalue }),
+                contentType: 'application/json',
+                success: function (data) {
+
+                    $("#Sponsorform").html(data);
+                },
+                error: function () {
+                    alert('Error post');
+                }
+
+            });
+        
+        
+           
+       
+        
+
+    
+  
+    }
+    
+    
+</script>
+<body onload="sponsor()">
+@using (Html.BeginForm(new { id = "sponsorlist" }))
+{
+    
+@Html.DropDownList("Sponsors", ViewBag.Sponsors as SelectList, new { multiple = "multiple", id = "sponsorlist" });
+<br />
+     <input type=button value="ADD" id="add" onclick="sponsor()" class="css_button "/>
+                                                                                                             
+                                                                                                           
+   
+}
+@using (Html.BeginForm("AssignAllStudiesToUser", "StudyAccessManagement", FormMethod.Post, new { id = "Sponsorform" }))
+{
+}
+</body>

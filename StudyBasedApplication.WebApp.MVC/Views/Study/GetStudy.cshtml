@@ -1,0 +1,40 @@
+﻿@model StudyBasedApplication.WebApp.MVC.Models.GrantDenyStudyModels
+@{
+    ViewBag.Title = "GetStudy";
+}
+<link href="../../Content/style.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/Inputscss/buttons.css" rel="stylesheet" type="text/css" />
+
+@using( Html.BeginForm("GetStudy","Study", FormMethod.Post)){
+<div>
+<h2>Studies</h2><br /><br />
+<input type="text" id="SearchText" name="SearchText" placeholder="----Search study by name----" />
+<input type="submit" value="Search " class=css_button /> 
+</div>
+
+
+    
+
+<br /><br />
+<table class=beta>
+<tr ><th>StudyId &nbsp; &nbsp; </th><th>StudyName &nbsp; &nbsp; </th><th>StudyCode&nbsp; &nbsp;  </th><th>SponsorName &nbsp; &nbsp;  </th><th>  StudyStartDate &nbsp; &nbsp; </th><th>Status &nbsp; &nbsp; </th><th> StudyDetails</th></tr>
+@foreach (var item in Model.studymodel)
+{
+    //if (item.Status)
+    //{
+        <tr>
+        <td>@item.StudyID</td>
+        <td>@item.StudyName</td>
+        <td>@item.StudyCode</td>
+        <td>@item.SponsorName</td>
+        <td>@item.StudyStartDate</td>
+        <td>@item.Status</td>
+        <td>@Html.ActionLink("Details", "StudyDetails", new { StudyID=item.StudyID })</td>
+        </tr>
+
+   // }
+}
+</table>
+
+
+}

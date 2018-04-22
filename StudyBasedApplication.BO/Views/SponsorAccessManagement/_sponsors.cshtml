@@ -1,0 +1,71 @@
+﻿@model  StudyBasedApplication.BO.Models.SponsorModel
+
+<link href="../../Content/Inputscss/chkboxradio.css" rel="stylesheet" type="text/css" />
+
+<script>
+    $(function () {
+
+        var form_original_data = $("#Sponsorform").serialize();
+
+        $("#Save").click(function (e) {
+
+            if ($("#Sponsorform").serialize() == form_original_data) {
+                // no change
+                
+                    alert("No changes made");
+                    e.preventDefault();
+                }
+                else
+                {
+                alert("changes done successfully");
+                }
+            
+        });
+
+    });
+</script>
+
+
+<h2>@ViewBag.message</h2>
+@if (Model.SponsorPermissions.Count != 0)
+{
+   <table>
+
+   <thead>
+   <th>Sponsorname</th>
+   <th>ShowAllStudies</th>
+   <th>Remove</th>
+   </thead>
+
+   <tbody>
+
+   @Html.HiddenFor(model => model.id)
+@for (int i = 0; i < Model.SponsorPermissions.Count; i++)
+{
+    <tr>
+    
+  
+    <td>@Html.DisplayFor(model => model.SponsorPermissions[i].SponsorName)</td>
+    @Html.HiddenFor(model => model.SponsorPermissions[i].SponsorName)
+    @Html.HiddenFor(model => model.SponsorPermissions[i].SponsorID)
+    <td>@Html.CheckBoxFor(model => model.SponsorPermissions[i].ShowAllStudies)</td>
+    <td>@Html.CheckBoxFor(model => model.SponsorPermissions[i].Remove)</td>
+    
+    </tr>
+}
+
+    
+
+
+
+    </tbody>
+
+</table>
+
+<input type=submit value="Save" id="Save" class=css_button />
+}
+else
+{
+    <h4 style="color:White" >No sponsors assigned</h4>
+}
+

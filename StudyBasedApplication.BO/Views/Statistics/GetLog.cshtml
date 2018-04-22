@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "GetLog";
+}
+<link href="../../Content/Inputscss/buttons.css" rel="stylesheet" type="text/css" />
+<center>
+@using (Html.BeginForm("GenerateReport", "Statistics", FormMethod.Post, new { id = "Report" }))
+{
+ <br />
+    <br /><br />
+<span><h3>From Date:</h3> <input type="date" name=d1 /><br />
+<h3>To Date:</h3><input type="date" name=d2 /><br />
+<br />
+
+
+<input type=submit value="Download Report" class=css_button /></span>
+ }</center>

@@ -1,0 +1,41 @@
+﻿.accordion {
+		display: block;
+	}
+	.accordion h3 {
+		background: #d6d6d6;
+		margin: 1px 0 0;
+		padding: 5px 3%;
+		cursor: pointer;
+		
+	}
+	.accordion h3:first-child {
+		margin-top: 0
+	}
+	.accordion h3:before {
+		content: '.';
+		display: block;
+		font-size: 0;
+		line-height: 0;
+		position: absolute;
+		margin: 8px 0 0 -10px;
+		width: 4px;
+		height: 7px;
+		background:url(../../Images/arrow_up.png) no-repeat 0 0;
+		
+	}
+	.accordion h3.active:before {
+		transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+	}
+	.accordionContainer {
+		display: none;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	.accordionSubContainer {
+		padding: 10px 20px;
+	}

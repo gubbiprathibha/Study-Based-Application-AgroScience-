@@ -1,0 +1,50 @@
+﻿@model StudyBasedApplication.BO.Models.StudyStatusesModel
+
+@{
+    ViewBag.Title = "StudyStatusesMapper";
+}
+<script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        if ('@TempData["message"]' != "") {
+        alert('@TempData["message"]');
+        }
+    });    
+
+    $(document).ready(function () {
+        $("#grouplist").change(function () {
+            var un = $("#grouplist option:selected").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("RenderListOfMaps", "DataMapping")',
+                data: JSON.stringify({ groupID: un }),
+                contentType: 'application/json',
+                success: function (data) {
+
+                    $("#statusmapperlist").html(data);
+                },
+                error: function () {
+                    alert('Error post');
+                }
+            });
+        });
+    });
+</script>
+
+
+<h2>StudyStatusesMapper</h2>
+
+@*@Html.DisplayNameFor(model => model.groups);
+@Html.DropDownListFor(model => model.groups,(List<SelectListItem>)ViewBag.groups)*@
+
+@using (Html.BeginForm())
+{
+ @Html.DisplayNameFor(model => model.groups)
+                                            
+@Html.DropDownList("grouplist", (List<SelectListItem>)ViewBag.groups, "--Select--")
+
+<div id="statusmapperlist"></div>
+}
+

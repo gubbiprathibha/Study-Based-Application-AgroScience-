@@ -1,0 +1,67 @@
+﻿@model StudyBasedApplication.Models.User
+@{
+    ViewBag.Title = "Register";
+}
+@{
+    Layout = null;
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+        <li>
+          @Html.LabelFor(model => model.Gender)
+        
+           Male <input type=radio name="Gender" value="Male" />
+           Female <input type=radio name="Gender" value="Female" />
+           
+        
+        </li>
+                    <li>
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName)
+            </li>
+            <li> @Html.LabelFor(model=>model.GroupID)
+        
+        
+        @Html.DropDownList("GroupID")
+        </li>
+
+            <li>
+                @Html.LabelFor(m => m.EmailId)
+                @Html.TextBoxFor(m => m.EmailId)
+            </li>
+            <li>
+             @Html.LabelFor(m => m.Company)
+                @Html.TextBoxFor(m => m.Company)</li>
+                <li>
+                 @Html.LabelFor(m => m.Department)
+                @Html.TextBoxFor(m => m.Department)</li>
+                <li> @Html.LabelFor(m => m.Job)
+                @Html.TextBoxFor(m => m.Job)</li>
+                <li>@Html.LabelFor(m=>m.LoginID)
+                @Html.TextBoxFor(m=>m.LoginID)</li>
+                <li> @Html.LabelFor(m => m.Mobile)
+                @Html.TextBoxFor(m => m.Mobile)</li>
+                <li> @Html.LabelFor(m => m.Phone)
+                @Html.TextBoxFor(m => m.Phone)</li>
+        </ol>
+        <input type="submit" value="Register" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

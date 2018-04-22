@@ -1,0 +1,42 @@
+﻿@model List<StudyBasedApplication.BO.Models.UserProfileModel>
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<link href="../../Content/style.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm())
+{
+<table class="beta" width="100%" height="80%">
+<tr><th>UserName</th><th>Email Id</th><th>Sponsor Name&nbsp;&nbsp;&nbsp;</th><th>Assign</th></tr>
+@foreach (var item in Model)
+{
+    
+    
+
+    <tr id="@item.User.UserID" onmouseover="this.style.cursor='pointer'">
+    
+  
+    <td>@item.User.FirstName</td>
+    <td>@item.User.EmailID</td>
+    
+    <td>
+    @foreach (var i in item.Sponsors)
+    {
+        
+		 @i.SponsorName<br />
+    }
+    </td>
+    
+   <td>
+   <a href="~/StudyAccessManagement/Sponsor_StudyManagement/?UserId=@item.User.UserID" color="Black" >Sponsor/Study</a>
+   </td>
+    </tr>
+    
+}
+</table>
+
+
+
+}
+
+

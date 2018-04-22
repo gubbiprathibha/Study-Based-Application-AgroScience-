@@ -1,0 +1,42 @@
+﻿@model StudyBasedApplication.BO.Models.StudyStatusesModel
+
+@using (Html.BeginForm(new { id = "map" }))
+{
+    
+    <fieldset>
+    @Html.HiddenFor(x => x.groups, Model.groups)
+    @if (((string)ViewBag.dataSourceStatusState) != "empty")
+    {
+        <hr />
+   <table id="mapperlist" class=beta >
+   
+    <tr>
+       <td>@Html.DisplayNameFor(model => model.localStatus)</td>
+       <td>@Html.DisplayNameFor(model => model.datasource)</td>
+       <td>@Html.DisplayNameFor(model => model.dataSourceStatus)</td>
+      
+
+    </tr>
+    
+    <tr>
+     <td>@Html.EditorFor(model => model.localStatus, new { id = "id" })</td>
+     
+     <td>@Html.DropDownListFor(model => model.datasource, (List<SelectListItem>)ViewBag.dataSource)</td>
+    
+     <td>@Html.DropDownListFor(model => model.dataSourceStatus, (List<SelectListItem>)ViewBag.dataSourceStatus)</td>
+    </tr>
+   </table>
+    <br />
+    <input type="submit"  value="SaveMap"  id="savemap" class="css_button"/>
+    }
+    else
+    {
+        <br />
+        <br />
+        <br />
+     @Html.Label("Already Mapped all the Statuses")
+    }
+
+    </fieldset>
+    
+}

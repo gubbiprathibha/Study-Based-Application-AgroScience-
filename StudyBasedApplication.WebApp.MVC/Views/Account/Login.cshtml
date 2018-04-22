@@ -1,0 +1,103 @@
+﻿@model StudyBasedApplication.Models.LoginModel
+
+@{
+    ViewBag.Title = "Front Office Log in";
+}
+
+@{
+    Layout = null;
+}
+<script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<link href="../../Content/LoginStyle.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/Inputscss/input1.css" rel="stylesheet" type="text/css" />
+<html>
+<head>
+    
+    
+
+    
+<script  type="text/javascript" language="JavaScript1.2">
+    /* you must supply your own immages */
+    var bgimages = new Array()
+    bgimages[0] = "../../Images/images%20(2).jpg"
+    bgimages[1] = "../../Images/images%20(3)%20-%20Copy.jpg"
+    bgimages[2] = "../../Images/images%20(7).jpg"
+
+    var inc = -1
+
+    function bgSlide() {
+        if (inc < bgimages.length - 1)
+            inc++
+        else
+            inc = 0
+        document.body.style.backgroundImage = "url('" + bgimages[inc] + "')"
+    }
+
+    if (document.all || document.getElementById)
+        window.onload = new Function('setInterval("bgSlide()",4000)')
+</script>
+</head>
+<body style="background-image:url('../../Images/images%20(3)%20-%20Copy.jpg')">
+    <img src="../../Images/EUROFINS%20(1).gif" />
+
+    <div class=right>
+
+
+
+<h3>@TempData["errormessage"]</h3>
+
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) 
+{
+    @Html.AntiForgeryToken()
+   <h4 style="color:red"> @Html.ValidationSummary(true)</h4>
+    
+            <table class=border width=100%>
+           <tr><td style="color:black"><h1>Sign In</h1></td></tr>
+           <tr>
+               <td><span><h2><b>@Html.LabelFor(m => m.LoginID)</b>: 
+           @Html.TextBoxFor(m => m.LoginID, new { placeholder = "LoginId", Class = "inputs" })</h2>
+           </span><p style="color:red"> @Html.ValidationMessageFor(m => m.LoginID)</p> </td></tr>
+           
+            <tr></tr>
+            <tr>
+               <td><h2><b>@Html.LabelFor(m => m.Password)</b>:@Html.PasswordFor(m => m.Password, new { placeholder = "Password", Class = "inputs" })</h2><p style="color:red">@Html.ValidationMessageFor(m => m.Password)</p></td></tr>
+                            
+                
+                <br />
+    <br />
+    <br />
+   <tr></tr>
+                    
+        @*<input type="submit" value="Log in" />*@
+    <tr><td>
+
+
+        @*<input style="height:50px; width:80px" type="submit" value="Log in" />*@
+    @*<input type="submit" value="" class="imgClass" />*@
+    
+    
+    <span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="image" src="../../Images/download%20(1).jpg" width="120"  height="30"   alt="SUBMIT!">
+    
+   </span>
+   </td></tr></table>
+
+    @*<p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>*@
+}
+
+</div>
+
+
+</body>
+
+
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

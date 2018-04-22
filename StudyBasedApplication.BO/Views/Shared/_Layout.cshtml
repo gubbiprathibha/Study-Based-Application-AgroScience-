@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+
+  
+
+    <link href="../../Content/LoginStyle.css" rel="stylesheet" type="text/css" />
+	<script>
+	    $('li').click(function () {
+
+	        $(this).addClass('active')
+       .siblings()
+       .removeClass('active');
+
+
+	    });
+</script>
+
+</head>
+<body style="background-image:url(../../Images/bio_lab_background.jpg)">
+
+<table  width=100% >
+
+     <tr height=8%>
+        <td colspan="2" bgcolor="#0E4996">
+                <div ><img src="../../Images/Eurofins.jpg" align="left"/> <div align="right" style="color:White; font-size:medium"><img src="../../Images/729ebe0c689023040b7eb03fe48e7792.png" /><br />Welcome @Session["BOUserName"] </div> </div>
+                
+        </td>
+
+      
+    
+  <tr valign=top>
+
+    <td width="15%">
+      <div class="nav-container" style="height:530px; background-color:#292929;">
+  <ul class="nav">
+    <li>
+      <a href="/Home/Index">
+        <span class="icon-user"></span>
+        <span class="text">Home</span>
+      </a>
+    </li>
+    
+    <li>
+      <a href="/Home/UsersEditor">
+        <span class="icon-headphones"></span>
+        <span class="text">Users Editor</span>
+      </a>
+      </li>
+    <li>
+      <a href="/Statistics/GetLog">
+        <span class="icon-picture"></span>
+        <span class="text">Statistics</span>    
+      </a>
+    </li>
+    <li>
+        
+      <a href="/Page/Group">
+        <span class="icon-facetime-video"></span>
+        <span class="text">Permission Editor</span>
+      </a>
+    </li>
+    <li>
+        
+      <a href="/DataMapping/StudyStatusesMapper">
+        <span class="icon-facetime-video"></span>
+        <span class="text">Data Mapping</span>
+      </a>
+    </li>
+  
+  <li>
+        
+      <a href="/Account/LogOff">
+        <span class="icon-facetime-video"></span>
+        <span class="text">Log Off</span>
+      </a>
+    </li>
+  
+  </ul>
+</div>
+  
+    </td>
+    <td width="100" height="500" >
+        
+         @RenderBody()
+
+         @*@Scripts.Render("~/bundles/jquery")*@
+         @RenderSection("scripts", required: false)
+       
+    </td>
+
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#cccccc">
+      <center>
+      Copyright © eurofins.com
+      </center>
+    </td>
+  </tr>
+</table>
+
+
+
+
+  
+</body>
+</html>

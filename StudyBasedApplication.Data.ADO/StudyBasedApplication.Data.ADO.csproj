@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A30E071-448B-42A5-853C-1B0ACBF8FF90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudyBasedApplication.Data.ADO</RootNamespace>
+    <AssemblyName>StudyBasedApplication.Data.ADO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\StudyBasedApplication.Business\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleCrypto">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ISponsorRepositry.cs" />
+    <Compile Include="IStatusRepository.cs" />
+    <Compile Include="IStudyRepositry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SponsorFactory.cs" />
+    <Compile Include="SponsorRepositry.cs" />
+    <Compile Include="StatusFactory.cs" />
+    <Compile Include="StatusRepository.cs" />
+    <Compile Include="StudyFactory.cs" />
+    <Compile Include="StudyRepositry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudyBasedApplication.Data.EFRepository\StudyBasedApplication.Data.EFRepository.csproj">
+      <Project>{E4257960-BD13-4AAA-8E56-A44AAE23E764}</Project>
+      <Name>StudyBasedApplication.Data.EFRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudyBasedApplication.Data.Repository\StudyBasedApplication.Data.Repository.csproj">
+      <Project>{487ABBAC-92AB-465E-A4BF-8C4EEE28EE23}</Project>
+      <Name>StudyBasedApplication.Data.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudyBasedApplication.Models\StudyBasedApplication.Models.csproj">
+      <Project>{5A16B373-B0CF-4625-9E42-9B43E2D41795}</Project>
+      <Name>StudyBasedApplication.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

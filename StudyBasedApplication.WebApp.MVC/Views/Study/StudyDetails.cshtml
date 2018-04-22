@@ -1,0 +1,43 @@
+﻿@model StudyBasedApplication.Models.Study
+@{
+    ViewBag.Title = "StudyDetails";
+}
+
+<h2>Study Deatils</h2><br /><br />
+
+<link href="../../Content/style.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+<table class=beta>
+<tr><th>StudyID</th><th>StudyName</th><th>StudyStartDate</th></tr>
+
+@using(Html.BeginForm())
+{
+    <tr>
+ <td>@Html.DisplayFor(x => x.StudyID)</td>
+ <td>@Html.DisplayFor(x => x.StudyName)</td>
+ <td>@Html.DisplayFor(x => x.StudyStartDate)</td>
+ </tr>
+    
+}
+
+
+<tr><th>ActivityID</th><th>ActivityName</th><th>ActivityStatus</th></tr>
+@foreach (var item in (List<StudyBasedApplication.Models.Activity>)ViewBag.Activities)
+{
+    //if (item.Status)
+    //{
+        <tr>
+        <td>@item.ActivityID</td>
+        <td>@item.ActivityName</td>
+        <td>@item.ActivityStatus</td>
+       
+        </tr>
+
+    // }
+}
+</table>

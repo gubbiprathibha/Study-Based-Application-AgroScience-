@@ -1,0 +1,142 @@
+.beta
+{
+    border-collapse:collapse;
+    border:2px solid black;
+    
+    
+}
+.beta tr
+{
+    border:1px solid gray;
+    
+}
+.beta th
+{
+    color:black;
+}
+
+
+.beta tr:hover td
+{
+   background: -webkit-linear-gradient(90deg, #eeaf41 5%, #F5B23F 100%);
+    background: -moz-linear-gradient(90deg, #eeaf41 5%, #F5B23F 100%);
+    background: -ms-linear-gradient(90deg, #eeaf41 5%, #F5B23F 100%);
+    background: linear-gradient(180deg, #F5B23F 5%, #eeaf41 100%);
+     
+    color:Black;
+}
+.beta a
+{
+    font-weight:bolder;
+    color:Black;
+}
+
+
+table, td, th {
+    border: 1px solid black;
+}
+
+th {
+    background-color:Silver;
+    color: black;
+    font-size:16px;
+    font-weight:bolder;
+    font-style:normal;
+
+    
+}
+    th a:link, th a:visited, th a:active, th a:hover {
+        color: #333;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0;
+    }
+
+    th a:hover {
+        color: #000;
+    }
+
+    th.asc a, th.desc a {
+        margin-right: .75em;
+    }
+
+    th.asc a:after, th.desc a:after {
+        display: block;
+        position: absolute;
+        right: 0em;
+        top: 0;
+        font-size: 0.75em;
+    }
+
+   
+
+td {
+    padding: 0.25em 2em 0.25em 0em;
+    border: 0 none;
+    font-size:16px;
+    font-weight:bolder;
+    font-style:normal;
+}
+
+tr.pager td {
+    padding: 0 0.25em 0 0;
+}
+
+.hello div
+{
+   
+cursor: pointer;
+position: relative;
+margin-top: 1px;
+zoom: 1;
+    font-style: normal;
+    font-weight:bolder;
+	color: black;
+	line-height: 23px;
+	font-size: 17px;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	width:auto;
+	
+	
+background-color:transparent;	
+	
+	
+	
+	
+   
+}
+.hello h3
+{
+   font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+	padding: 0px 20px;
+	position: relative;
+	z-index: 20;
+	display: block;
+	height: 40px;
+	cursor: pointer;
+	color:Black;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	line-height: 35px;
+	font-size: 19px;
+    background: -webkit-linear-gradient(90deg, #CCDBCA 5%, #B4D6BA 100%);
+    background: -moz-linear-gradient(90deg, #CCDBCA 5%, #B4D6BA 100%);
+    background: -ms-linear-gradient(90deg, #CCDBCA 5%, #B4D6BA 100%);
+    background: linear-gradient(180deg, #B4D6BA 5%, #CCDBCA 100%);
+    
+    
+    
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+		0px 2px 2px rgba(0,0,0,0.1);
+} 
+.hello h3:hover
+{
+    background: -webkit-linear-gradient(90deg, #B4D6BA 5%, #CCDBCA 100%);
+    background: -moz-linear-gradient(90deg, #B4D6BA 5%, #CCDBCA 100%);
+    background: -ms-linear-gradient(90deg, #B4D6BA 5%, #CCDBCA 100%);
+    background: linear-gradient(180deg, #CCDBCA 5%, #B4D6BA 100%);
+   
+    
+}

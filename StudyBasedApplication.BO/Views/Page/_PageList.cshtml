@@ -1,0 +1,103 @@
+﻿@model StudyBasedApplication.BO.Models.PermissionModel
+
+<script>
+    $(function () {
+
+        var form_original_data = $("#Permission").serialize();
+
+        $("#deny").click(function (e) {
+
+            if ($("#Permission").serialize() == form_original_data)
+            // no change
+            {
+                alert("No changes made");
+                e.preventDefault();
+            }
+            else {
+                alert("changes done successfully");
+            }
+        });
+        $("#grant").click(function (e) {
+
+            if ($("#Permission").serialize() == form_original_data)
+            // no change
+            {
+                alert("No changes made");
+                e.preventDefault();
+            }
+
+            else {
+                alert("changes done successfully");
+            }
+        });
+
+
+    });
+</script>
+
+
+<link href="../../Content/style.css" rel="stylesheet" type="text/css" />
+
+@if (Model.MyPermissionDeny.Count != 0)
+{
+    
+    <font size="5">Denied Pages</font>
+    <br />
+    <br />
+    
+ <table width="50%" class=beta >
+ <tr ><th>Allow</th><th>Page Name</th></tr>
+
+     
+    
+      @for (int i = 0; i < Model.MyPermissionDeny.Count; i++)
+      {
+          <tr>
+            @Html.HiddenFor(m => m.MyPermissionDeny[i].PageName)
+            <td>@Html.CheckBoxFor(m => m.MyPermissionDeny[i].Selected, new { id = "checkbox_" + i })</td>
+           <td> @Html.DisplayFor(m => m.MyPermissionDeny[i].PageName)</td>
+          </tr>
+            
+      }    
+        
+   </table><br /><br />
+  
+     <input type="submit" name="btn" value="Allow" id=grant class=css_button /><br /><br />
+   
+    
+}
+else
+{
+    <h4>No pages are denied</h4><br /><br />
+}
+@if (Model.MyPermissionAllow.Count != 0)
+{
+    
+    <font size="5">Granted Pages</font>
+    <br />
+    <br />
+    
+    
+    <table width="50%" class=beta>
+    <tr ><th>Deny</th><th>Page Name</th></tr>
+ 
+    
+     @for (int i = 0; i < Model.MyPermissionAllow.Count; i++)
+     {
+            <tr>
+            @Html.HiddenFor(m => m.MyPermissionAllow[i].PageName)
+          <td>  @Html.CheckBoxFor(m => m.MyPermissionAllow[i].Selected, new { id = "checkbox_" + i })</td>
+          <td>  @Html.DisplayFor(m => m.MyPermissionAllow[i].PageName)</td>
+          </tr>
+            
+     }    
+  </table><br /><br />
+ 
+     <input type="submit" name="btn" value="Deny" id=deny class=css_button />
+    
+ 
+}
+else
+{
+    <h4>No pages are granted</h4>
+}
